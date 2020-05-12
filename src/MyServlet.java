@@ -1,3 +1,4 @@
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -35,5 +36,11 @@ public class MyServlet extends javax.servlet.http.HttpServlet {
         }
         writer.println("<p>Count: " + count + "</p>");
         writer.println("</html>");
+
+//        response.sendRedirect("first-jsp");
+        /*RequestDispatcher requestDispatcher = request.getRequestDispatcher("first-jsp");
+        requestDispatcher.forward(request, response);*/
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("http://wikipedia.org");
+        requestDispatcher.forward(request, response);
     }
 }
